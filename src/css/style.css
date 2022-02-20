@@ -53,10 +53,26 @@ nav {
     padding-right: 10px;
 }
 
+
+
+/*  #state::-webkit-scrollbar-track {
+    background-color: #171718;
+}
+
+#state::-webkit-scrollbar {
+    width: 10px;
+    background: #5C62EC;
+}
+
+#state::-webkit-scrollbar-thumb {
+    background: #5C62EC;
+} */
+
 .widget-input {
     display: flex;
     flex-direction: column;
     padding: 20px;
+    
 }
 .widget-input #state {
     font-size: 16px;
