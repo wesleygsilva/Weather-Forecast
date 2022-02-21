@@ -8,55 +8,64 @@
     <title>Previsão do tempo</title>
 </head>
 <body>
-    <nav>
-        <div class="logo">
-            <img class="menu-title-img" src="../src/images/sun.png" alt="Logo previsão do tempo">
-            <h1 class="menu-title-text"> Previsão do tempo</h1>
-        </div>
+    <header>
+        <!-- <button id="btn-mobile" aria-expanded="false" aria-controls="menu" aria-haspopup="true" aria-label="Abrir Menu">
+            <span id="hamburguer"></span>
+        </button> -->
+        
+        <nav>
+            <button id="btn-mobile" aria-expanded="false" aria-controls="menu" aria-haspopup="true" aria-label="Abrir Menu">
+                <span id="hamburguer"></span>
+            </button>
+            <div class="logo">
+                <img class="menu-title-img" src="../src/images/sun.png" alt="Logo previsão do tempo">
+                <h1 class="menu-title-text"> Previsão do tempo</h1>
+            </div>
 
-        <div class="widget-input">
-            <label for="state">Estado:</label>
-            <select id="state" name="state" data-js="state">
-                <option value="AC">Acre</option>
-                <option value="AL">Alagoas</option>
-                <option value="AP">Amapá</option>
-                <option value="AM">Amazonas</option>
-                <option value="BA">Bahia</option>
-                <option value="CE">Ceará</option>
-                <option value="DF">Distrito Federal</option>
-                <option value="ES">Espírito Santo</option>
-                <option value="GO">Goiás</option>
-                <option value="MA">Maranhão</option>
-                <option value="MT">Mato Grosso</option>
-                <option value="MS">Mato Grosso do Sul</option>
-                <option value="MG">Minas Gerais</option>
-                <option value="PA">Pará</option>
-                <option value="PB">Paraíba</option>
-                <option value="PR">Paraná</option>
-                <option value="PE">Pernambuco</option>
-                <option value="PI">Piauí</option>
-                <option value="RJ">Rio de Janeiro</option>
-                <option value="RN">Rio Grande do Norte</option>
-                <option value="RS">Rio Grande do Sul</option>
-                <option value="RO">Rondônia</option>
-                <option value="RR">Roraima</option>
-                <option value="SC">Santa Catarina</option>
-                <option value="SP" selected>São Paulo</option>
-                <option value="SE">Sergipe</option>
-                <option value="TO">Tocantins</option>
-                <option value="EX">Estrangeiro</option>
-            </select>
+            <div class="widget-input">
+                <label for="state">Estado:</label>
+                <select id="state" name="state" data-js="state">
+                    <option value="AC">Acre</option>
+                    <option value="AL">Alagoas</option>
+                    <option value="AP">Amapá</option>
+                    <option value="AM">Amazonas</option>
+                    <option value="BA">Bahia</option>
+                    <option value="CE">Ceará</option>
+                    <option value="DF">Distrito Federal</option>
+                    <option value="ES">Espírito Santo</option>
+                    <option value="GO">Goiás</option>
+                    <option value="MA">Maranhão</option>
+                    <option value="MT">Mato Grosso</option>
+                    <option value="MS">Mato Grosso do Sul</option>
+                    <option value="MG">Minas Gerais</option>
+                    <option value="PA">Pará</option>
+                    <option value="PB">Paraíba</option>
+                    <option value="PR">Paraná</option>
+                    <option value="PE">Pernambuco</option>
+                    <option value="PI">Piauí</option>
+                    <option value="RJ">Rio de Janeiro</option>
+                    <option value="RN">Rio Grande do Norte</option>
+                    <option value="RS">Rio Grande do Sul</option>
+                    <option value="RO">Rondônia</option>
+                    <option value="RR">Roraima</option>
+                    <option value="SC">Santa Catarina</option>
+                    <option value="SP" selected>São Paulo</option>
+                    <option value="SE">Sergipe</option>
+                    <option value="TO">Tocantins</option>
+                    <option value="EX">Estrangeiro</option>
+                </select>
+                
+                <label for="city">Cidade:</label>
+                <input type="text" name="city" id="city" data-js="input-city" value="Bauru">
+                <input type="button" id="consult" value="Consultar" data-js="consult">
+            </div>
             
-            <label for="city">Cidade:</label>
-            <input type="text" name="city" id="city" data-js="input-city" value="Bauru">
-            <input type="button" id="consult" value="Consultar" data-js="consult">
-        </div>
-        
-        
-        <!-- <ul class="menu">
-            <li class="menu-item"><a href="">Consulta por cidade</a></li>
-        </ul> -->
-    </nav>
+            
+            <!-- <ul class="menu">
+                <li class="menu-item"><a href="">Consulta por cidade</a></li>
+            </ul> -->
+        </nav>
+    </header>
 
     <main class="content">
         <div class="widget-master">
@@ -81,7 +90,9 @@
                 <h1>Próximos dias</h1>
             </div>
 
-            <div class="weather-widged-days"></div>
+            <div class="weather-widged-days">
+                
+            </div>
     </main>
 
     <script src="../src/js/script.js"></script>

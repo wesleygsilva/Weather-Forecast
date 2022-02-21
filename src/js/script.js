@@ -1,3 +1,19 @@
+const btnMobile = document.querySelector('#btn-mobile');
+
+const menuControl = () => {
+    const nav = document.querySelector('nav');
+    
+    if (nav.offsetLeft < 0) {
+        nav.classList.remove('hide-menu');
+        nav.classList.add('show-menu');
+    } else {
+        nav.classList.remove('show-menu');
+        nav.classList.add('hide-menu');
+    }
+}
+
+btnMobile.addEventListener('click', menuControl);
+
 const API_KEY = '8deb1b52';
 
 const inputState = document.querySelector('[data-js="state"]');
@@ -140,15 +156,16 @@ const showDaysWeatherForecast = (forecastData) => {
     });
 }
 
-const getWeaterForecast = async () => {
+const getWeatherForecast = async () => {
     const stateCity = `${inputCity.value},${inputState.value}`;
     const internalWeatherForecastData = await fetchWeatherForecast(getUrl(stateCity));
 
     showMainWeatherForecast(internalWeatherForecastData);
     showDaysWeatherForecast(internalWeatherForecastData.forecast);
+    menuControl();
 }
 
-consult.addEventListener('click', getWeaterForecast);
+consult.addEventListener('click', getWeatherForecast);
 
 const init = async () => {
     const internalWeatherForecastData = await fetchWeatherForecast(getUrl());
