@@ -59,9 +59,9 @@ const getHour = () => {
     return hour;
 }
 
-const setIconForecast = (description, hour) => ({
+const setIconForecast = (description, hour, isDay) => ({
     'Tempestade forte' : "../src/images/thunder cloud.svg", 
-    'Tempestade tropical': (hour >= 18 && hour < 6) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
+    'Tempestade tropical': (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
     'Furacão': "../src/images/wind.svg",
     'Tempestades severas' : "../src/images/thunder cloud.svg", 
     'Tempestades' : "../src/images/thunder cloud.svg", 
@@ -69,10 +69,10 @@ const setIconForecast = (description, hour) => ({
     'Misto chuva e gelo' : "../src/images/snowing.svg", 
     'Misto neve e gelo' : "../src/images/snowing.svg", 
     'Geada fina' : "../src/images/foggy cloud.svg",
-    'Chuviscos' : (hour >= 18 && hour < 6) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
+    'Chuviscos' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
     'Congelamento chuva' : "../src/images/snowing.svg",  
-    'Alguns chuviscos' : (hour >= 18 && hour < 6) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
-    'Alguns chuviscos' : (hour >= 18 && hour < 6) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
+    'Alguns chuviscos' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
+    'Alguns chuviscos' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
     'Neve baixa' : "../src/images/snow.svg",
     'Tempestade com neve' : "../src/images/snow.svg",
     'Ventania com neve' : "../src/images/wind.svg",
@@ -87,24 +87,24 @@ const setIconForecast = (description, hour) => ({
     'Ventania' : "../src/images/wind.svg",
     'Tempo frio':  "../src/images/snow cloudly.svg", 
     'Tempo nublado' : "../src/images/cloud.svg", 
-    'Tempo limpo' : (hour >= 18 && hour < 6) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
+    'Tempo limpo' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
     'Tempo nublado' : "../src/images/cloud.svg", 
-    'Parcialmente nublado' : (hour >= 18 && hour < 6) ? "../src/images/moon cloud.svg" : "../src/images/sunny cloud.svg",
-    'Parcialmente nublado' : (hour >= 18 && hour < 6) ? "../src/images/moon cloud.svg" : "../src/images/sunny cloud.svg",
-    'Tempo limpo' : (hour >= 18 && hour < 6) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
-    'Ensolarado' : (hour >= 18 && hour < 6) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
-    'Estrelado' : (hour >= 18 && hour < 6) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
-    'Ensolarado com muitas nuvens' : (hour >= 18 && hour < 6) ? "../src/images/moon cloud.svg" : "../src/images/sunny cloud.svg",
+    'Parcialmente nublado' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/moon cloud.svg" : "../src/images/sunny cloud.svg",
+    'Parcialmente nublado' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/moon cloud.svg" : "../src/images/sunny cloud.svg",
+    'Tempo limpo' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
+    'Ensolarado' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
+    'Estrelado' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
+    'Ensolarado com muitas nuvens' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/moon cloud.svg" : "../src/images/sunny cloud.svg",
     'Misto chuva e granizo' : "../src/images/snowing.svg",  
-    'Ar quente' : (hour >= 18 && hour < 6) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
+    'Ar quente' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/moon.svg" : "../src/images/sunny.svg",
     'Tempestades isoladas' : "../src/images/thunder cloud.svg", 
     'Trovoadas dispersas' : "../src/images/thunder.svg",
     'Trovoadas dispersas' : "../src/images/thunder.svg",
-    'Chuvas esparsas' : (hour >= 18 && hour < 6) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
+    'Chuvas esparsas' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/night raining cloud.svg" : "../src/images/sun cloudly raining.svg",
     'Pesados neve' : "../src/images/snow.svg",
     'Chuviscos com neve' : "../src/images/rain cloud.svg", 
     'Neve pesada' : "../src/images/snow.svg",
-    'Sol com poucas nuvens' : (hour >= 18 && hour < 6) ? "../src/images/moon cloud.svg" : "../src/images/sunny cloud.svg",
+    'Sol com poucas nuvens' : (hour >= 18 || hour < 6) && (!isDay) ? "../src/images/moon cloud.svg" : "../src/images/sunny cloud.svg",
     'Chuva' : "../src/images/rain cloud.svg", 
     'Queda de neve' : "../src/images/snow.svg",
     'Tempestades isoladas' : "../src/images/thunder cloud.svg"
@@ -131,7 +131,7 @@ const removeCardDay = () => {
 const addNewCardDay = (item) => {
     const divMain = document.querySelector('.weather-widged-days'); 
     const newDiv = document.createElement('div');
-    const src = setIconForecast(item.description, getHour());
+    const src = setIconForecast(item.description, getHour(), true);
 
     const newCard = `<div class="weather-widged-days-item">
                          <p>${item.weekday}</p>
