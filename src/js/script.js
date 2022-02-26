@@ -1,20 +1,20 @@
-const btnMobile = document.querySelector('#btn-mobile');
+// const btnMobile = document.querySelector('#btn-mobile');
 
-const menuControl = () => {
-    const nav = document.querySelector('nav');
+// const menuControl = () => {
+//     const nav = document.querySelector('nav');
     
-    if (nav.offsetLeft < 0) {
-        nav.classList.remove('hide-menu');
-        nav.classList.add('show-menu');
-    } else {
-        nav.classList.remove('show-menu');
-        nav.classList.add('hide-menu');
-    }
-}
+//     if (nav.offsetLeft < 0) {
+//         nav.classList.remove('hide-menu');
+//         nav.classList.add('show-menu');
+//     } else {
+//         nav.classList.remove('show-menu');
+//         nav.classList.add('hide-menu');
+//     }
+// }
 
-btnMobile.addEventListener('click', menuControl);
+// btnMobile.addEventListener('click', menuControl);
 
-const API_KEY = '8deb1b52';
+const API_KEY = 'ad166b98';
 
 const inputState = document.querySelector('[data-js="state"]');
 const inputCity = document.querySelector('[data-js="input-city"]');
@@ -133,14 +133,14 @@ const addNewCardDay = (item) => {
     const newDiv = document.createElement('div');
     const src = setIconForecast(item.description, getHour(), true);
 
-    const newCard = `<div class="weather-widged-days-item">
-                         <p>${item.weekday}</p>
-                         <img class="weather-widged-days-img" src="${src}" >
-                         <div class="weather-widged-min-max">
-                             <p class="weather-widged-min">${item.min}°</p>
-                             <p class="weather-widged-max">${item.max}°</p>
-                         </div>
-                     </div>`;
+    newDiv.setAttribute('class', 'weather-widged-days-item');
+
+    const newCard = `<p>${item.weekday}</p>
+                    <img class="weather-widged-days-img" src="${src}" title="${item.description}">
+                    <div class="weather-widged-min-max">
+                        <p class="weather-widged-min" title="min">${item.min}°</p>
+                        <p class="weather-widged-max" title="max">${item.max}°</p>
+                    </div>`;
 
     divMain.appendChild(newDiv);
     newDiv.innerHTML = newCard;
@@ -157,7 +157,7 @@ const showDaysWeatherForecast = (forecastData) => {
 }
 
 const getWeatherForecast = async () => {
-    const stateCity = `${inputCity.value},${inputState.value}`;
+    const stateCity = `${inputCity.value}`;
     const internalWeatherForecastData = await fetchWeatherForecast(getUrl(stateCity));
 
     showMainWeatherForecast(internalWeatherForecastData);
