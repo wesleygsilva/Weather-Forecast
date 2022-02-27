@@ -247,6 +247,11 @@ footer {
     /* background-color: red; */
 }
 
+footer p{
+    width: 700px;
+    text-align: center;
+}
+
 
 @media only screen and (min-width: 601px) and (max-width: 800px){
     .weather-widged {
@@ -275,6 +280,10 @@ footer {
 
     .weather-widged-info {
         width: 560px;
+    }
+
+    footer p{
+        width: 560px;    
     }
 }
 
@@ -427,5 +436,9 @@ footer {
 
     footer {
         position: relative;
+    }
+
+    footer p{
+        width: 320px;    
     }
 }
