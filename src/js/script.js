@@ -112,6 +112,7 @@ const setIconForecast = (description, hour, isDay) => ({
 
 const showMainWeatherForecast = (internalWeatherForecastData) => {
     mainIcon.setAttribute('src', setIconForecast(internalWeatherForecastData.description, getHour()));
+    mainIcon.setAttribute('title', internalWeatherForecastData.description);
     temperature.innerHTML = internalWeatherForecastData.temp;
     humidity.innerHTML = internalWeatherForecastData.humidity;
     windSpeed.innerHTML = internalWeatherForecastData.wind_speedy;
